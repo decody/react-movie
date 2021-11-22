@@ -1,4 +1,39 @@
-.App {
-  max-width: 1680px;
-  margin: 0 auto;
+@charset "UTF-8";
+
+:root {
+    --bg-color: #1f2533;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 14px;
+    color: #fff;
+    background-color: var(--bg-color);
+}
+button {
+    outline: none;
+}
+p {
+    line-height: 1.4;
+}
+.ant-layout {
+    max-width: 1680px;
+    margin: 0 auto;
+    background: transparent;
+}
+.ant-layout-header {
+    height: auto;
+    padding: 25px 0;
+    line-height: normal;
+    background: transparent;
+}
+.ant-layout-footer {
+    text-align: center;
+    color: #999;
+    background: transparent;
+}
+.h1.ant-typography, 
+.ant-typography h1 {
+    color: #9cc9f5;
 }

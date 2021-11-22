@@ -1,8 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-    ${reset}
+${reset}
 :root {
     --bg-color: #141414;
 }
@@ -18,6 +18,10 @@ button {
 }
 p {
     line-height: 1.4;
+}
+.app {
+    width: 1680px;
+    margin: 0 auto;
 }
 `
 

@@ -1,13 +1,25 @@
-import './assets/App.css';
+import './assets/app.css'
 import GlobalStyle from './assets/GlobalStyle';
+import MovieHeader from './components/common/MovieHeader';
+import MovieFooter from './components/common/MovieFooter';
 import Routes from './Routes';
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
+    <>
       <GlobalStyle />
-      <Routes />
-    </div>
+      <div className="App">
+        <Layout>
+          <MovieHeader />
+          <Content>
+            <Routes />
+          </Content>
+          <MovieFooter />
+        </Layout>
+      </div>
+    </>
   );
 }
 

@@ -7,7 +7,7 @@ const MovieList = () => {
     return (
         <div className="movie-list">
             <StyledMovieList>
-                <Row justify="center" gutter={16}>
+                <Row justify="space-around" gutter={16}>
                     <Col className="gutter-row" span={6}>
                         <MovieCard />
                     </Col>
