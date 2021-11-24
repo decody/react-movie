@@ -3,8 +3,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Working on Json-server 
-`json-server --watch db.json -port 3004`
+`json-server --watch db.json --port 4000`
 https://github.com/typicode/json-server
+
+웹상에서 제이슨 서버 기동
+https://my-json-server.typicode.com/
+
+
+axios to react
+https://www.freecodecamp.org/news/how-to-use-axios-with-react/
 
 ## Available Scripts
 
