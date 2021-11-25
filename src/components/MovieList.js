@@ -9,57 +9,62 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:4000/movies';
 
 const MovieList = () => {
-    const [movieData, setMovieData] = useState(null);
-    
-    const getMovieData = async () => {
-        const response = await axios.get(baseUrl);
-        setMovieData(response.data);
-        console.log(JSON.stringify(movieData));
-    };
 
-    getMovieData();
+    const [movies, setMovies] = useState([]);
 
-    
-    // useEffect(() => {
-    //     async function getMovies() {
-    //         const response = await axios.get(baseUrl)
-    //         setMovies(response.data)
-    //     }
-    //     getMovies();
-    // }, []);
+    useEffect(() => {
+        axios.get(baseUrl)
+            .then(response => {
+                console.log(response.data)
+                setMovies(response.data)
+                // setMainMovies(response.data)
+            })
+            .catch(error => { console.log(error) });
+    }, []);
 
-    // if (!movies) {
-    //     return <div>No data</div>
-    // }
+    if (!movies) {
+        return <div>No data</div>
+    }
 
-    // axios.get(baseUrl)
-    //     .then(response => { 
-    //         console.log(response.data);
-    //      })
-    //     .catch(error => { console.log(error) });
-    
+    // const getMovieData = async () => {
+    //     const response = await axios.get(baseUrl);
+    //     setMovieData(response.data);
+    //     console.log(JSON.stringify(movieData));
+    // };
+
+    // getMovieData();
+   
     return (
         <div className="movie-list">
             {/* <div>
-                {movies.map(movie => (
-                    <div key={movie.id}>movie</div>
+                {movies && movies.map((movie, index) => (
+                    <div key={index}>
+                        <div>{movie.id}</div>
+                        <div>{movie.title}</div>
+                        <div>{movie.director}</div>
+                        <div>{movie.rating}</div>
+                        <div>{movie.title}</div>
+                    </div>
                 ))}
-                <div></div>
             </div> */}
+            
             <StyledMovieList>
-                <Row justify="space-around" gutter={16}>
-                    <Col className="gutter-row" span={6}>
-                        <MovieCard />
-                    </Col>
-                    <Col className="gutter-row" span={6}>
-                        <MovieCard />
-                    </Col>
-                    <Col className="gutter-row" span={6}>
-                        <MovieCard />
-                    </Col>
-                    <Col className="gutter-row" span={6}>
-                        <MovieCard />
-                    </Col>
+                <Row justify="space-around" gutter={16, 16}>
+                    {movies && movies.map((movie, index) => (
+                        <Col className="gutter-row" span={6} key={ index } style={{ paddingBottom: '16px' }}>
+                            <MovieCard 
+                                movieCard
+                                movieId={ movie.id }
+                                title={ movie.title }
+                                director={ movie.director }
+                                year={ movie.year }
+                                rating={ movie.rating }
+                                category={ movie.category }
+                                imageUrl={ movie.imageUrl }
+                            />
+                        </Col>
+                    ))}
+
                 </Row>
             </StyledMovieList>
         </div>
