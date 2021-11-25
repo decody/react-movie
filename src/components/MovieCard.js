@@ -7,26 +7,36 @@ const { Text } = Typography;
 
 const MovieCard = (props) => {
 
+    const {
+        id, 
+        title, 
+        imageUrl, 
+        rating, 
+        director, 
+        category, 
+        year
+    } = props;
+
     if (props.movieCard) {
         return (
             <>
                 <Space align="center">
                     <Link to="/info">
                     <Card
-                        data-movieId={ props.id }
+                        data-movieId={ id }
                         hoverable
                         style={{ width: 300 }}
                         cover={
-                            <img alt={ props.title } 
-                            src={ props.imageUrl }
+                            <img alt={ title } 
+                            src={ imageUrl }
                             style={{ width: 300, height: 160 }}
                         />}
                     >   
-                        <div><StarFilled /> <Text>{ props.rating }</Text></div>
-                        <Meta title={ props.title } description={ props.director } />
-                        <p>{ props.year }</p>
+                        <div><StarFilled /> <Text>{ rating }</Text></div>
+                        <Meta title={ title } description={ director } />
+                        <p>{ year }</p>
                         <div>
-                            <Tag color="#f50">{ props.category }</Tag>
+                            <Tag color="#f50">{ category }</Tag>
                         </div>
                     </Card>
                     </Link>
