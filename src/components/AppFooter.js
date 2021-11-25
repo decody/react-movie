@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 const { Footer } = Layout;
 
-const MovieFooter = () => {
+const AppFooter = () => {
     return (
         <Footer>
             <address>2021 &copy; React Movie. All rights reserved.</address>
@@ -10,4 +10,4 @@ const MovieFooter = () => {
     );
 };
 
-export default MovieFooter;
+export default AppFooter;

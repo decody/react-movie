@@ -1,7 +1,7 @@
 import './assets/app.css'
 import GlobalStyle from './assets/GlobalStyle';
-import MovieHeader from './components/common/MovieHeader';
-import MovieFooter from './components/common/MovieFooter';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
 import Routes from './Routes';
 import { Layout } from 'antd';
 const { Content } = Layout;
@@ -12,11 +12,11 @@ function App() {
       <GlobalStyle />
       <div className="App">
         <Layout>
-          <MovieHeader />
+          <AppHeader />
           <Content>
             <Routes />
           </Content>
-          <MovieFooter />
+          <AppFooter />
         </Layout>
       </div>
     </>

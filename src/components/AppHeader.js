@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 const { Header } = Layout;
 const { Title } = Typography;
 
-const MovieHeader = () => {
+const AppHeader = () => {
     return (
         <Header>  
             <Typography>
@@ -14,4 +14,4 @@ const MovieHeader = () => {
     );
 };
 
-export default MovieHeader;
+export default AppHeader;

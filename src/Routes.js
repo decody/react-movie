@@ -4,16 +4,20 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-import Home from './views/Home';
+import Main from './views/Main';
 import MovieInfo from './views/MovieInfo';
 
 const Routes = () => {
+    const routeList = [
+        { label: 'home', link: '/', component: Main },
+        { label: 'info', link: '/info', component: MovieInfo }
+    ];
     return (
-        <BrowserRouter basename="/">
+        <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/list" component={Home} />
-                <Route exact path="/info" component={MovieInfo} />
+                {routeList.map(route => (
+                    <Route key={route.label} exact path={route.link} component={route.component} />
+                ))}
             </Switch>
         </BrowserRouter>
     );

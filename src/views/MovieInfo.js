@@ -1,7 +1,7 @@
 import React from 'react';
-import MovieInfoSide from '../components/MovieInfoSide';
-import MovieInfoTitle from '../components/MovieInfoTitle';
-import MovieInfoDetail from '../components/MovieInfoDetail';
+import MovieInfoSide from './InfoPage/MovieInfoSide';
+import MovieInfoTitle from './InfoPage/MovieInfoTitle';
+import MovieInfoDetail from './InfoPage/MovieInfoDetail';
 import { Row, Col } from 'antd';
 import { Button } from 'antd';
 
