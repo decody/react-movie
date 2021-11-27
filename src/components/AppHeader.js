@@ -7,9 +7,11 @@ const { Title } = Typography;
 const AppHeader = () => {
     return (
         <Header>  
-            <Typography>
-                <Title>My Movies</Title>
-            </Typography>
+            <a href="/">
+                <Typography>
+                    <Title>My Movies</Title>
+                </Typography>
+            </a>
         </Header>
     );
 };

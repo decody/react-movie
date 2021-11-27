@@ -10,7 +10,7 @@ import MovieInfo from './views/MovieInfo';
 const Routes = () => {
     const routeList = [
         { label: 'home', link: '/', component: Main },
-        { label: 'info', link: '/info', component: MovieInfo }
+        { label: 'info', link: '/info/:movieId', component: MovieInfo }
     ];
     return (
         <BrowserRouter>

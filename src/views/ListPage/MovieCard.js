@@ -6,8 +6,9 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 const MovieCard = (props) => {
+
     const {
-        id, 
+        movieId,
         title, 
         imageUrl, 
         rating, 
@@ -20,24 +21,23 @@ const MovieCard = (props) => {
         return (
             <>
                 <Space align="center">
-                    <Link to="/info">
-                    <Card
-                        data-movieId={ id }
-                        hoverable
-                        style={{ width: 300, borderRadius: 20, border: 0, overflow: 'hidden' }}
-                        cover={
-                            <img alt={ title } 
-                            src={ imageUrl }
-                            style={{ width: '100%', height: 160 }}
-                        />}
-                    >   
-                        <div><StarFilled /> <Text>{ rating }</Text></div>
-                        <Meta title={ title } description={ director } />
-                        <p>{ year }</p>
-                        <div>
-                            <Tag color="#f50">{ category }</Tag>
-                        </div>
-                    </Card>
+                    <Link to={`/info/${movieId}`}>
+                        <Card
+                            hoverable
+                            style={{width: 300, borderRadius: 20, border: 0, overflow: 'hidden'}}
+                            cover={
+                                <img alt={title} 
+                                src={imageUrl}
+                                style={{width: '100%', height: 160}}
+                            />}
+                        >   
+                            <div><StarFilled /> <Text>{rating}</Text></div>
+                            <Meta title={title} description={director} />
+                            <p>{year}</p>
+                            <div>
+                                <Tag color="#f50">{category}</Tag>
+                            </div>
+                        </Card>
                     </Link>
                 </Space>
             </>
