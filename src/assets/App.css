@@ -1,7 +1,9 @@
 @charset "UTF-8";
 
 :root {
-    --bg-color: #1f2533;
+    --primary-color: #3b81dd;
+    --bg-color: #000;
+    --gray-color: #242526;
 }
 * {
     box-sizing: border-box;
@@ -18,22 +20,34 @@ p {
     line-height: 1.4;
 }
 .ant-layout {
-    max-width: 1680px;
+    max-width: 1330px;
     margin: 0 auto;
     background: transparent;
 }
 .ant-layout-header {
-    height: auto;
-    padding: 25px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
     line-height: normal;
-    background: transparent;
+    background: #242526;
+    border-bottom: 1px solid #393a3b;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.ant-layout-header .ant-typography {
+    max-width: 1330px;
+    margin: 0 auto;
 }
 .ant-layout-footer {
     text-align: center;
     color: #999;
+    font-size: 16px;
     background: transparent;
 }
 .h1.ant-typography, 
 .ant-typography h1 {
-    color: #9cc9f5;
+    font-size: 26px;
+    color: var(--primary-color);
 }

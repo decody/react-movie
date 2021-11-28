@@ -30,7 +30,7 @@ const MovieList = () => {
             <StyledMovieList>
                 <Row justify="space-around" gutter={16}>
                     {movies && movies.map(movie => (
-                        <Col className="gutter-row" span={6} key={movie.id} style={{paddingBottom: 16, textAlign: 'center'}}>
+                        <Col className="gutter-row" span={6} key={movie.id} style={{paddingBottom: 16}}>
                             <MovieCard 
                                 movieCard
                                 movieId={movie.id}

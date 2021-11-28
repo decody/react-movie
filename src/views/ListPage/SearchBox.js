@@ -1,42 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Form, Input, Button, Select } from 'antd';
+import { Row, Col, Input, Button, Select } from 'antd';
+const { Search } = Input;
 const { Option } = Select;
 
 const SearchBox = () => {
+
+    const onSearch = value => console.log(value)
+
+    function handleChange(value) {
+        console.log(`selected ${value}`);
+    }
+
     return (
         <>
             <StyledSearchBox>
-                <Form
-                    name="basic"
-                >
-                    <Form.Item
-                        name="username"
-                    >
-                        <Select
-                            showSearch
-                            style={{ width: 200 }}
-                            placeholder="장르선택"
-                        >
-                            <Option value="공포">공포</Option>
-                            <Option value="스릴러">스릴러</Option>
-                            <Option value="로맨트코미디">로맨틱코미디</Option>
+                <Row>
+                    <Col span={4}>
+                        <Select defaultValue="choose" style={{ width: 'calc(100% - 10px)' }} size="large" onChange={handleChange}>
+                            <Option value="choose">장르</Option>
+                            <Option value="option1">공포</Option>
+                            <Option value="option2">스릴러</Option>
                         </Select>
-                       
-                    </Form.Item>
-                    <Form.Item
-                        name="moveTitle"
-                    >
-                       <Input placeholder="제목" />
-                    </Form.Item>
-                    <Form.Item
-                        name="username"
-                    >
-                        <Button type="primary">
+                    </Col>
+                    <Col span={12}>
+                        <Search
+                            placeholder="영화 검색"
+                            allowClear
+                            enterButton="Search"
+                            size="large"
+                            onSearch={onSearch}
+                        />    
+                    </Col>
+                    <Col span={8} style={{ textAlign: 'right' }}>
+                        <Button type="primary" shape="round" size="large">
                             새 영화 등록하기
                         </Button>
-                    </Form.Item>
-                </Form>
+                    </Col>
+                </Row>                
             </StyledSearchBox>
         </>
     );
@@ -45,7 +46,18 @@ const SearchBox = () => {
 export default SearchBox;
 
 const StyledSearchBox = styled.div`
-    min-height: 30px;
-    padding: 60px 10px 40px;
-    text-align: center;
+   padding: 40px 0 20px;
+
+   .ant-input-group-wrapper {
+       border-radius: 8px;
+       overflow: hidden;
+   }
+   .ant-select .ant-select-selector {
+       padding: 0 10px;
+       border-radius: 8px;
+   }
+   .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
 `
