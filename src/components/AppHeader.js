@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Typography } from 'antd';
 import { Layout } from 'antd';
 import { YoutubeOutlined } from '@ant-design/icons';
@@ -10,9 +11,9 @@ const AppHeader = () => {
         <Header>
             <Typography>
                 <Title>
-                    <a href="/">
+                    <Link to="/">
                         <YoutubeOutlined /> My Movies
-                    </a>
+                    </Link>
                 </Title>
             </Typography>
         </Header>

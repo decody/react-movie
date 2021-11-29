@@ -7,9 +7,9 @@ const { Text, Title } = Typography;
 
 const MovieInfo = (props) => {
     console.log("[Movie Info]")
-    const baseURL = 'http://localhost:4000/movies';
+    
     const movieId = props.match.params.movieId;
-    let endpoint = baseURL + `/${movieId}`;
+    const endpoint = '/movies/' + movieId;
     
     const [movie, setMovie] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -65,37 +65,37 @@ const MovieInfo = (props) => {
                 </Row>
                 <Row>
                     <Col span={6}>
-                        <div class="sidebar">
+                        <Sidebar>
                             {imageUrl 
-                                ? <div class="imgbox"><img src={imageUrl} alt={title} style={{width: '100%'}} /></div>
-                                : <div class="no-imgbox">해당이미지가 없습니다.</div>
+                                ? <Imgbox><img src={imageUrl} alt={title} style={{width: '100%'}} /></Imgbox>
+                                : <NoImgbox>해당이미지가 없습니다.</NoImgbox>
                             }
-                            <div style={{ paddingBottom: '30px'}}>
+                            <Director>
                                 <Title level={5}>감독</Title>
                                 <Text>{director}</Text>
-                            </div>
-                            <div>
+                            </Director>
+                            <Category>
                                 <Title level={5}>장르</Title>
                                 <div>
                                     <Badge color="green" text={category} />
                                 </div>
-                            </div>
-                        </div>
+                            </Category>
+                        </Sidebar>
                     </Col>
                     <Col span={18}>
-                        <div className="movie-content">
-                            <div style={{ paddingBottom: '20px'}}>
+                        <MovieContent>
+                            <MovieTitlebar>
                                 <Title level={4}>{title}</Title>
-                                <div>
+                                <Year>
                                     <Text>{year}</Text>
-                                </div>
-                                <div style={{ paddingTop: '10px', color: '#f7b928' }}>
+                                </Year>
+                                <Rating>
                                     <StarFilled />
                                     <Text style={{ paddingLeft: '10px', color: '#f7b928' }}>{rating}</Text>
-                                </div>
-                            </div>
+                                </Rating>
+                            </MovieTitlebar>
                             <Text>{summary}</Text>
-                        </div>
+                        </MovieContent>
                     </Col>
                 </Row>
             </StyledMovieInfo>
@@ -115,69 +115,85 @@ const MovieInfo = (props) => {
 
 export default MovieInfo;
 
+const Year = styled.div`
+    padding-top: 10px;
+    color: #f7b928;
+`
+
+const Rating = styled.div`
+    padding-top: 10px;
+    color: #f7b928;
+`
+
+const Director = styled.div`
+    padding-bottom: 30px;
+`
+
+const Category = styled.div`
+
+`
+
+const Imgbox = styled.div`
+    max-height: 170px;
+    margin: 0 0 20px;
+    border-radius: 12px;
+    overflow: hidden;
+`
+
+const NoImgbox = styled.div`
+    max-height: 170px;
+    margin: 0 0 20px;
+    text-align: center;
+    color: #666;
+    background: #333;
+    border-radius: 12px;
+`
+
+const Sidebar = styled.div`
+    background: var(--gray-color);
+    border-radius: 20px;
+    min-height: 400px;
+    padding: 20px;
+
+    h5 {
+        margin-bottom: 5px;
+        color: #a9a9a9;
+    }
+
+    .ant-typography {
+        color: #a9a9a9;
+    }
+
+    .ant-badge-status-text {
+        color: #52c41a;
+    }
+`
+
+const MovieContent = styled.div`
+    background: var(--gray-color);
+    border-radius: 20px;
+    min-height: 400px;
+    margin: 0 0 0 30px;
+    padding: 30px;
+
+    h4.ant-typography  {
+        margin-bottom: 5px;
+        padding: 0;
+        color: #fff;
+        font-size: 24px;
+    }
+
+    .ant-typography {
+        line-height: 1.4em;
+        color: #a9a9a9;
+    }
+`
+
+const MovieTitlebar = styled.div`
+    padding-bottom: 20px;
+`
+
+
 const StyledMovieInfo = styled.div`
     padding: 80px 0 60px;
-
-    .movie-container {
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .sidebar,
-    .movie-content {
-        background: var(--gray-color);
-        border-radius: 20px;
-    }
-
-    .sidebar {
-        min-height: 400px;
-        padding: 20px;
-
-        .imgbox {
-            max-height: 170px;
-            margin: 0 0 20px;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .no-imgbox {
-            max-height: 170px;
-            margin: 0 0 20px;
-            text-align: center;
-            color: #666;
-            background: #333;
-            border-radius: 12px;
-        }
-
-        h5 {
-            margin-bottom: 5px;
-            color: #a9a9a9;
-        }
-
-        .ant-typography {
-            color: #a9a9a9;
-        }
-
-        .ant-badge-status-text {
-            color: #52c41a;
-        }
-    }
-
-    .movie-content {
-        min-height: 400px;
-        margin: 0 0 0 30px;
-        padding: 30px;
-
-        h4.ant-typography  {
-            margin-bottom: 5px;
-            padding: 0;
-            color: #fff;
-            font-size: 24px;
-        }
-
-        .ant-typography {
-            line-height: 1.4em;
-            color: #a9a9a9;
-        }
-    }
 `

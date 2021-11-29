@@ -9,7 +9,7 @@ const Main = () => {
         <>  
             <StyledMain>     
                 <SearchBox />
-                <MovieList></MovieList>
+                <MovieList />
                 <Paginate />
             </StyledMain>
         </>

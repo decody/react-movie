@@ -32,13 +32,13 @@ const MovieCard = (props) => {
                             />}
                         >   
                             <Meta title={title} description={director} />
-                            <div className="rating">
+                            <Rating>
                                 <StarFilled /> <Text>{rating}</Text>
-                            </div>
-                            <p className="year">{year}</p>
-                            <div className="category">
+                            </Rating>
+                            <Year>{year}</Year>
+                            <Category>
                                 <Badge color="green" text={category} />
-                            </div>
+                            </Category>
                         </Card>
                     </Link>
                 </StyledMovieCard>
@@ -49,6 +49,26 @@ const MovieCard = (props) => {
 
 export default MovieCard;
 
+const Rating = styled.div`
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #f7b928;
+    text-align: right;
+
+    & .ant-typography {
+        color: #f7b928;
+    }
+`
+
+const Year = styled.div`
+    padding-top: 4px;
+`
+
+const Category = styled.div`
+    padding-top: 20px;
+`
+ 
 const StyledMovieCard = styled.div`
     .ant-card-cover {
         height: 180px;
@@ -87,22 +107,6 @@ const StyledMovieCard = styled.div`
     }
     .ant-card-meta-description {
         color: #a9a9a9;
-    }
-    .ant-card-body .rating {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        color: #f7b928;
-        text-align: right;
-    }
-    .ant-card-body .rating .ant-typography {
-        color: #f7b928;
-    }
-    .ant-card-body .year {
-       padding-top: 4px;
-    }
-    .ant-card-body .category {
-        padding-top: 20px;
     }
     .ant-badge-status-text {
         color: #52c41a;

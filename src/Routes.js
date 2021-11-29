@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    BrowserRouter,
     Switch,
     Route
 } from 'react-router-dom';
@@ -13,13 +12,11 @@ const Routes = () => {
         { label: 'info', link: '/info/:movieId', component: MovieInfo }
     ];
     return (
-        <BrowserRouter>
-            <Switch>
-                {routeList.map(route => (
-                    <Route key={route.label} exact path={route.link} component={route.component} />
-                ))}
-            </Switch>
-        </BrowserRouter>
+        <Switch>
+            {routeList.map(route => (
+                <Route key={route.label} exact path={route.link} component={route.component} />
+            ))}
+        </Switch>
     );
 };
 
