@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import MovieModal from '../../components/MovieModal';
 import { Row, Col, Input, Button, Select } from 'antd';
 const { Search } = Input;
 const { Option } = Select;
@@ -8,9 +9,17 @@ const SearchBox = () => {
 
     const onSearch = value => console.log(value)
 
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+
     function handleChange(value) {
         console.log(`selected ${value}`);
     }
+    
+    const showModal = () => {
+        setIsModalVisible(true);
+        setIsEdit(false);
+    };
 
     return (
         <>
@@ -33,12 +42,17 @@ const SearchBox = () => {
                         />    
                     </Col>
                     <Col span={8} style={{ textAlign: 'right' }}>
-                        <Button type="primary" shape="round" size="large">
+                        <Button type="primary" shape="round" size="large" onClick={showModal}>
                             새 영화 등록하기
                         </Button>
                     </Col>
-                </Row>                
+                </Row>    
             </StyledSearchBox>
+            <MovieModal 
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+                isEdit={isEdit}
+            />
         </>
     );
 };

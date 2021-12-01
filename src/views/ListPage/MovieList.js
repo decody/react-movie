@@ -39,7 +39,7 @@ const MovieList = () => {
                                 director={movie.director}
                                 year={movie.year}
                                 rating={movie.rating}
-                                category={movie.category}
+                                category={movie.genre}
                                 imageUrl={movie.imageUrl}
                             />
                         </Col>

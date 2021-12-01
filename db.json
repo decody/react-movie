@@ -5,7 +5,10 @@
       "title": "랑종",
       "year": "2021",
       "director": "반풍 빠산타나꾼",
-      "category": ["호러", "공포"],
+      "genre": [
+        "호러",
+        "공포"
+      ],
       "rating": 7.6,
       "imageUrl": "https://image.genie.co.kr/Y/IMAGE/IMG_MUZICAT/IV2/Genie_Magazine/10395/Mgz_Main_Top_20210625093810.jpg/dims/resize/Q_80,0",
       "summary": "태국 북동부 '이산' 지역 낯선 시골마을\n집 안, 숲, 산, 나무 논밭까지,\n이 곳의 사람들은 모든 것에 혼이 깃들어 있다고 믿는다.\n가문의 대를 이어 조상신 '바얀 신'을 모시는 랑종(무당).\n조카 '밍'의 상태가 심상치 않음을 직감한다.\n날이 갈수록 이상 증세가 점점 심각해지는 '밍'.\n무당을 취재하기 위해 '님'과 동행했던 촬영 팀은 신내림이 대물림 되는 순간을 포착하기 위해\n밍과 님, 그리고 가족에게 벌어지는 미스터리한 현상을\n카메라에 담기 시작한다.신내림이 대물림되는 무당 가문 피에 관한 세 달간의 기록"
@@ -15,7 +18,10 @@
       "title": "아저씨",
       "year": "2010",
       "director": "이정범",
-      "category": ["액션", "어드벤처"],
+      "genre": [
+        "액션",
+        "어드벤처"
+      ],
       "rating": 9.2,
       "imageUrl": "https://cdn.kado.net/news/photo/201007/475017_154277_3650.jpg",
       "summary": "아저씨, 깡패예요? 이름을 지우고 세상을 등진 전직 특수요원에게 유일하게 다가온 옆집 소녀. 그러나 마음을 열고 우정을 나눈 순간, 소녀가 무서운 세상 속으로 사라졌다!"
@@ -25,7 +31,9 @@
       "title": "신세계",
       "year": "2013",
       "director": "박훈정",
-      "category": ["스릴러"],
+      "genre": [
+        "스릴러"
+      ],
       "rating": 8.4,
       "imageUrl": "https://t1.daumcdn.net/cfile/tistory/999BBF375A4093EC2E",
       "summary": "국내 최대 범죄 조직 '골드문'의 후계자 선출에 개입하라! 작전 설계자 강 과장은 8년전 조직에 심어 놓은 이자성을 조종하고, 조직 내에선 후계자 전쟁으로 칼바람이 휘몰아친다. 각자가 꿈꿨던 그들의 서로 다른 신세계는 열릴 것인가."
@@ -35,7 +43,12 @@
       "title": "카우보이 비밥 천국의 문",
       "year": "2002",
       "director": "와타나베 신이치로",
-      "category": ["일본작품", "SF", "드라마", "애니메이션"],
+      "genre": [
+        "일본작품",
+        "SF",
+        "드라마",
+        "애니메이션"
+      ],
       "rating": 8.8,
       "imageUrl": "https://an2-img.amz.wtchn.net/image/v2/9644ce8e0850df87207111d207714253.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPakV3T0RBc0luQmhkR2dpT2lJdmRqSXZjM1J2Y21VdmFXMWhaMlV2TVRZeE5UYzVOelkzTmprd01UZ3dORFk1TUNJc0luRjFZV3hwZEhraU9qZ3dMQ0ozYVdSMGFDSTZNVGt5TUgwLm1SMmpqTDdxNkR0WUhtQmtGRGliYUppVXRHWkVlZkJabU1NZ0M0Z0pDejg",
       "summary": "2071년의 화성. 도심에서 화물차가 폭발한 후 원인 불명의 죽음이 이어지자, 테러로 판단한 정부가 거액의 현상금을 내건다. 잔챙이 사냥에 지친 카우보이들. 오랜만에 몸 좀 풀어볼까?"
@@ -45,7 +58,11 @@
       "title": "승리호",
       "year": "2021",
       "director": "조성희",
-      "category": ["SF", "액션", "어드벤처"],
+      "genre": [
+        "SF",
+        "액션",
+        "어드벤처"
+      ],
       "rating": 6.6,
       "imageUrl": "https://img.khan.co.kr/news/2021/04/21/2021042101002389900202141.jpg",
       "summary": "우주에서 쓰레기를 주우며 산다. 꿈은 아득하기만 하다. 2092년, 기댈 곳 없는 낙오자 넷. 그들이 천진한 인간형 로봇을 손에 넣는다. 때가 왔다, 위험한 거래를 개시한다!"
@@ -55,7 +72,10 @@
       "title": "범죄도시",
       "year": "2017",
       "director": "강윤성",
-      "category": ["액션", "어드벤처"],
+      "genre": [
+        "액션",
+        "어드벤처"
+      ],
       "rating": 7.4,
       "imageUrl": "https://img.insight.co.kr/static/2017/12/01/700/e0p0d79uidti9f6bb7fm.jpg",
       "summary": "극악무도한 범죄를 저지르며 시민들을 공포에 빠뜨린 신흥 범죄 조적. 이들이 나쁜 놈들 한방에 때려잡는 괴물 형사의 레이더망에 딱 걸렸다. 무자비한 악당들과 정의감 넘치는 강력반 형사들의 대결. 불꽃 튀는 현실 액션의 향연이 펼쳐진다."
@@ -65,7 +85,11 @@
       "title": "졸업",
       "year": "1967",
       "director": "마이크 니콜스",
-      "category": ["로맨틱 코미디", "미국영화", "영화도서원작"],
+      "genre": [
+        "로맨틱 코미디",
+        "미국영화",
+        "영화도서원작"
+      ],
       "rating": 9.1,
       "imageUrl": "https://media.bunjang.co.kr/product/170825711_6_1637675999_w360.jpg",
       "summary": "더스틴 호프먼이 기념비적인 연기를 보여준 영화. 대학을 갓 졸업한 순진한 청년이 이웃 중년 여성의 유혹에 서서히 빠져드는 역할을 훌륭히 소화해냈다. 오스카상을 수상한 클래식 작품."
@@ -75,10 +99,38 @@
       "title": "라라랜드",
       "year": "2016",
       "director": "데이미언 셔젤",
-      "category": ["로맨틱 코미디", "뮤지컬", "미국영화", "로맨스"],
+      "genre": [
+        "로맨틱 코미디",
+        "뮤지컬",
+        "미국영화",
+        "로맨스"
+      ],
       "rating": 8.9,
       "imageUrl": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201704/27/9d4b1d16-4df1-4d8b-9124-ea9062581e3a.jpg",
       "summary": "꿈꾸는 이들이 모이는 곳, LA. 우연히 만난 배우 지망생 미아와 재즈 피아니스트 세바스찬은 서로를 향한 사랑을 키워간다. 각자의 꿈으로 인해 가슴 아픈 딜레마를 마주하게 될 줄은 모르고."
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "{}": "",
+      "id": 12
+    },
+    {
+      "{}": "",
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
     }
   ]
 }

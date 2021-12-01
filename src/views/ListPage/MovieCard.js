@@ -14,7 +14,7 @@ const MovieCard = (props) => {
         imageUrl, 
         rating, 
         director, 
-        category, 
+        genre, 
         year
     } = props;
 
@@ -37,7 +37,7 @@ const MovieCard = (props) => {
                             </Rating>
                             <Year>{year}</Year>
                             <Category>
-                                <Badge color="green" text={category} />
+                                <Badge color="green" text={genre} />
                             </Category>
                         </Card>
                     </Link>
