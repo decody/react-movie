@@ -44,7 +44,6 @@ const MovieList = () => {
                             />
                         </Col>
                     ))}
-
                 </Row>
             </StyledMovieList>
         </div>

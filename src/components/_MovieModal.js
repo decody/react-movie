@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { 
     Row, 
-    Col,
+    Col, 
+    Button, 
     Modal, 
     Form, 
     Checkbox, 
@@ -22,7 +23,6 @@ const layout = {
 
 const MovieModal = (props) => {
     const { isModalVisible, setIsModalVisible, isEdit} = props;
-    const [form] = Form.useForm();
 
     console.log("[Movie Modal]")
 
@@ -32,39 +32,18 @@ const MovieModal = (props) => {
     const min = "1900";
     const max = "2022";
 
-    const endpoint = '/movies/';
-
-    const genres = [
-        { name: 'horror', value: '공포'},
-        { name: 'drama', value: '드라마'},
-        { name: 'scifi', value: 'SF'},
-        { name: 'thriller', value: '스릴러'},
-        { name: 'action', value: '액션'},
-        { name: 'documentary', value: '다큐멘터리'},
-        { name: 'romantic', value: '로맨스'},
-        { name: 'comedy', value: '코미디'},
-        { name: 'animation', value: '애니메이션'},
-    ];
+    const endpoint = '/movies/'
 
     const handleOk = () => {
-        form
-            .validateFields()
-            .then((values) => {
-                form.resetFields();
-                onCreate(values);
-            })
-            .catch((info) => {
-                console.log('Validate Failed:', info);
-            });
+        setIsModalVisible(false);
     };
 
     const handleCancel = () => {
         setIsModalVisible(false);
     }; 
 
-    const onCreate = (values) => {
-        console.log('Received values of form: ', values);
-
+    const onFinish = (values) => {
+        console.log('Success:', values);
         axios.post(endpoint, {
             title: values.title,
             director: values.director,
@@ -82,6 +61,10 @@ const MovieModal = (props) => {
           console.log(response);
           setIsModalVisible(false);
         });
+    };
+
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
     };
 
     const validateMessages = {
@@ -105,16 +88,15 @@ const MovieModal = (props) => {
                 forceRender
                 title="영화 등록하기"
                 visible={isModalVisible}
-                cancelText="취소"
-                okText="등록"
-                onCancel={handleCancel}
                 onOk={handleOk} 
+                onCancel={handleCancel}
             >
                 <FormContainer>
                     <Form 
                         {...layout} 
-                        form={form}
                         name="movieForm"
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
                         validateMessages={validateMessages}
                         initialValues={{
                             title: '',
@@ -167,18 +149,44 @@ const MovieModal = (props) => {
                         <Form.Item name="genre" label="장르">
                             <Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
                                 <Row>
-                                    {genres.map((genre, index) => (
-                                        <Col span={8} key={index}>
-                                            <Checkbox value={genre.name}>
-                                                {genre.value}
-                                            </Checkbox>
-                                        </Col>
-                                    ))}
+                                    <Col span={8}>
+                                        <Checkbox value="A">공포</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="B">드라마</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="C">SF</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="D">스릴러</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="E">액션</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="F">다큐멘터리</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="G">로맨스</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="H">코미디</Checkbox>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Checkbox value="I">애니메이션</Checkbox>
+                                    </Col>
                                 </Row>
                             </Checkbox.Group>
                         </Form.Item>
                         <Form.Item name="summary" label="소개글">
                             <Input.TextArea />
+                        </Form.Item>
+                        <Form.Item>
+                            <Button danger>삭제하기</Button>
+                        </Form.Item>
+                        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+                            <Button type="primary" htmlType="submit">등록하기</Button>
                         </Form.Item>
                     </Form>
                 </FormContainer>

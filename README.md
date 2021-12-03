@@ -13,6 +13,17 @@ https://my-json-server.typicode.com/
 axios to react
 https://www.freecodecamp.org/news/how-to-use-axios-with-react/
 
+## 잔여 개발
+[x] 아이템 생성
+[ ] 아이템 수정
+[ ] 아이템 삭제
+[ ] 필터, 정렬, 검색
+[ ] 옵션: 파일첨부 기능
+
+
+https://cloudinary.com/documentation/image_upload_api_reference
+
+
 ## Available Scripts
 
 In the project directory, you can run:
