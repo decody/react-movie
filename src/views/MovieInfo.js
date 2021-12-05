@@ -7,11 +7,13 @@ import {
     Button, 
     Typography, 
     Badge, 
+    Modal,
 } from 'antd';
-import { StarFilled } from '@ant-design/icons';
+import { StarFilled, ExclamationCircleOutlined } from '@ant-design/icons';
 import MovieModal from '../components/MovieModal';
 
 const { Text, Title } = Typography;
+const { confirm } = Modal;
 
 const MovieInfo = (props) => {
     console.log("[Movie Info]")
@@ -21,7 +23,7 @@ const MovieInfo = (props) => {
     
     const [movie, setMovie] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [isEdit, setIsEdit] = useState(false);
+    const [isEdit, setIsEdit] = useState(true);
         
     useEffect(() => {
         axios.get(endpoint)
@@ -44,24 +46,56 @@ const MovieInfo = (props) => {
         rating,
         imageUrl,
     } = movie;
+
+    console.log("영화정보: " + movie);
     
     const showModal = () => {
         setIsModalVisible(true);
         setIsEdit(true);
     };
 
+    const onRemove = id => {
+        console.log("call remove apii");
+
+        if (id) {
+            axios.delete(endpoint)
+                .then(response => {
+                    console.log(response);
+                    props.history.push('/');
+                })
+                .catch(error => {console.log(error)})
+        }
+    }
+
+    const showConfirm = () => {
+        confirm({
+            title: '해당 영화 데이터를 삭제하시겠습니까?',
+            icon: <ExclamationCircleOutlined />,
+            content: `삭제할 영화: ${title}`,
+            okText: '삭제',
+            okType: 'danger',
+            cancelText: '취소',
+            onOk() {
+                console.log("OK");
+                onRemove(movieId);
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
+    };
+    
+
     return (
         <>
             <StyledMovieInfo>
                 <Row style={{padding: '50px 0 30px'}}>
                     <Col span={24} style={{ textAlign: 'right' }}>
-                        <Button 
-                            type="primary"
-                            shape="round" 
-                            size="large"
-                            onClick={showModal}
-                        >
+                        <Button type="primary" shape="round" size="large" onClick={showModal}>
                             영화 수정하기
+                        </Button>
+                        <Button type="danger" shape="round" size="large" onClick={showConfirm}>
+                            영화 삭제하기
                         </Button>
                     </Col>
                 </Row>
@@ -105,6 +139,7 @@ const MovieInfo = (props) => {
                 isModalVisible={isModalVisible}
                 setIsModalVisible={setIsModalVisible}
                 isEdit={isEdit}
+                movie={movie}
             />
         </>
     );
@@ -138,10 +173,13 @@ const Imgbox = styled.div`
 `
 
 const NoImgbox = styled.div`
-    max-height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
     margin: 0 0 20px;
     text-align: center;
-    color: #666;
+    color: #999;
     background: #333;
     border-radius: 12px;
 `
@@ -193,4 +231,8 @@ const MovieTitlebar = styled.div`
 
 const StyledMovieInfo = styled.div`
     padding: 80px 0 60px;
+
+    .ant-btn + .ant-btn {
+        margin-left: 10px;
+    }
 `

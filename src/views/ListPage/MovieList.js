@@ -3,12 +3,9 @@ import styled from 'styled-components';
 import { Row, Col } from 'antd';
 import MovieCard from './MovieCard';
 import axios from 'axios';
-// import baseURL from '../config';
-// import usePromise from '../hooks/usePromise';
 
 const MovieList = () => {
 
-    // const baseURL = 'http://localhost:4000/movies';
     const endpoint = '/movies';
 
     const [movies, setMovies] = useState([]);

@@ -6,6 +6,7 @@ import {
     Col,
     Modal, 
     Form, 
+    Button,
     Checkbox, 
     InputNumber,
     Input 
@@ -21,17 +22,27 @@ const layout = {
 };
 
 const MovieModal = (props) => {
-    const { isModalVisible, setIsModalVisible, isEdit} = props;
-    const [form] = Form.useForm();
+    const { 
+        isModalVisible, 
+        setIsModalVisible, 
+        isEdit,
+        movie,
+    } = props;
 
+    console.log("props: " + props)
+
+    const [form] = Form.useForm();
+   
     console.log("[Movie Modal]")
 
-    console.log("edit: " + isEdit)
+    console.log("수정여부: " + isEdit)
+    console.log("movie item data: " + movie);
 
+    const modalTitle = '영화 ' + (isEdit ? '수정' : '등록') + '하기';
     const label = "라벨";
     const min = "1900";
     const max = "2022";
-
+    
     const endpoint = '/movies/';
 
     const genres = [
@@ -45,6 +56,28 @@ const MovieModal = (props) => {
         { name: 'comedy', value: '코미디'},
         { name: 'animation', value: '애니메이션'},
     ];
+
+    console.log("movie in modal:" + movie);
+
+    const initialValueForCreate = {
+        title: '',
+        director: '',
+        year: '',
+        rating: '',
+        imageUrl: '',
+        genre: [],
+        summary: ''
+    };
+    
+    const initialValueForUpdate = {
+        title: movie.title || '',
+        director: movie.director || '',
+        year: movie.year || '',
+        rating: movie.rating || '',
+        imageUrl: movie.imageUrl || '',
+        genre: [],
+        summary: movie.summary || ''
+    };
 
     const handleOk = () => {
         form
@@ -79,8 +112,37 @@ const MovieModal = (props) => {
           },
         })
         .then((response) => {
-          console.log(response);
-          setIsModalVisible(false);
+            console.log(response);
+            setIsModalVisible(false);
+            // 모달 닫은 후 무비 리스트 리로딩
+            // props.history.push('/');
+        });
+    };
+
+    const handleEdit = value => {
+        console.log("edit");
+        if (isEdit) {
+            onUpdate()
+        }
+        setIsModalVisible(false);
+    };
+
+    const onUpdate = (movie) => {
+        axios.update(endpoint, {
+            title: movie.title,
+            director: movie.director,
+            year: movie.year,
+            rating: movie.rating,
+            genre: movie.genre,
+            summary: movie.summary,
+            imgUrl: movie.imgUrl
+        }, {
+          headers: {
+            "Content-Type": 'application/json',
+          },
+        })
+        .then((response) => {
+            console.log(response);
         });
     };
 
@@ -103,12 +165,16 @@ const MovieModal = (props) => {
         <>
             <Modal 
                 forceRender
-                title="영화 등록하기"
+                title={modalTitle}
                 visible={isModalVisible}
-                cancelText="취소"
-                okText="등록"
                 onCancel={handleCancel}
                 onOk={handleOk} 
+                footer={[
+                    <Button key="back" onClick={handleCancel}>취소</Button>,
+                    (isEdit) 
+                        ? <Button key="edit" type="primary" onClick={handleEdit}>수정</Button>
+                        : <Button key="submit" type="primary" onClick={handleOk}>등록</Button>,
+                ]}
             >
                 <FormContainer>
                     <Form 
@@ -116,15 +182,7 @@ const MovieModal = (props) => {
                         form={form}
                         name="movieForm"
                         validateMessages={validateMessages}
-                        initialValues={{
-                            title: '',
-                            director: '',
-                            year: '',
-                            rating: '',
-                            imageUrl: '',
-                            genre: [],
-                            summary: ''
-                        }}
+                        initialValues={isEdit ? initialValueForUpdate : initialValueForCreate}
                     >
                         <Form.Item
                             name="title"

@@ -16,12 +16,15 @@ https://www.freecodecamp.org/news/how-to-use-axios-with-react/
 ## 잔여 개발
 [x] 아이템 생성
 [ ] 아이템 수정
-[ ] 아이템 삭제
+[x] 아이템 삭제
 [ ] 필터, 정렬, 검색
 [ ] 옵션: 파일첨부 기능
 
-
+Image File Attachment
 https://cloudinary.com/documentation/image_upload_api_reference
+
+Catemate EditModal from Couch Coding
+https://github.com/sungeun101/cafemate/blob/main/front/src/components/EditModal.js
 
 
 ## Available Scripts
