@@ -23,7 +23,6 @@ const MovieInfo = (props) => {
     
     const [movie, setMovie] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [isEdit, setIsEdit] = useState(true);
         
     useEffect(() => {
         axios.get(endpoint)
@@ -51,7 +50,6 @@ const MovieInfo = (props) => {
     
     const showModal = () => {
         setIsModalVisible(true);
-        setIsEdit(true);
     };
 
     const onRemove = id => {
@@ -138,7 +136,6 @@ const MovieInfo = (props) => {
             <MovieModal 
                 isModalVisible={isModalVisible}
                 setIsModalVisible={setIsModalVisible}
-                isEdit={isEdit}
                 movie={movie}
             />
         </>

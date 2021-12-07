@@ -7,7 +7,6 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 const MovieCard = (props) => {
-
     const {
         movieId,
         title, 
@@ -36,9 +35,9 @@ const MovieCard = (props) => {
                                 <StarFilled /> <Text>{rating}</Text>
                             </Rating>
                             <Year>{year}</Year>
-                            <Category>
+                            <Genre>
                                 <Badge color="green" text={genre} />
-                            </Category>
+                            </Genre>
                         </Card>
                     </Link>
                 </StyledMovieCard>
@@ -65,7 +64,7 @@ const Year = styled.div`
     padding-top: 4px;
 `
 
-const Category = styled.div`
+const Genre = styled.div`
     padding-top: 20px;
 `
  

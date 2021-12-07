@@ -19,6 +19,17 @@ https://www.freecodecamp.org/news/how-to-use-axios-with-react/
 [x] 아이템 삭제
 [ ] 필터, 정렬, 검색
 [ ] 옵션: 파일첨부 기능
+[ ] SearchBox 컴포넌트에서 호출 버튼 분리
+
+[x] initialValueForUpdate 에 movie 체크 => movie? 표시
+[ ] isEdit 플래그
+    [ ] movie 존재유무 체크로 대체 가능
+    [ ] SearchBox에서 선언 불필요
+[x] validateMessages label
+[ ] movie 객체 그대로 넘기기
+    [ ] initialValues={movie}
+    [ ] POST / PATCH payload
+
 
 Image File Attachment
 https://cloudinary.com/documentation/image_upload_api_reference

@@ -5,9 +5,7 @@ import MovieCard from './MovieCard';
 import axios from 'axios';
 
 const MovieList = () => {
-
     const endpoint = '/movies';
-
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -36,7 +34,7 @@ const MovieList = () => {
                                 director={movie.director}
                                 year={movie.year}
                                 rating={movie.rating}
-                                category={movie.genre}
+                                genre={movie.genre}
                                 imageUrl={movie.imageUrl}
                             />
                         </Col>
