@@ -6,29 +6,24 @@ import { StarFilled } from '@ant-design/icons';
 const { Meta } = Card;
 const { Text } = Typography;
 
-const MovieCard = (props) => {
-    const {
-        movieId,
+const MovieCard = ({
+        movieCard, 
+        movieId, 
         title, 
-        imageUrl, 
-        rating, 
         director, 
+        year, 
+        rating, 
         genre, 
-        year
-    } = props;
-
-    if (props.movieCard) {
+        imageUrl
+    }) => {
+    if (movieCard) {   
         return (
             <>
                 <StyledMovieCard>
                     <Link to={`/info/${movieId}`}>
                         <Card
                             hoverable
-                            cover={
-                                <img alt={title} 
-                                src={imageUrl}
-                                style={{width: '100%'}}
-                            />}
+                            cover={<img alt={title} src={imageUrl} style={{width: '100%'}} />}
                         >   
                             <Meta title={title} description={director} />
                             <Rating>
@@ -43,7 +38,7 @@ const MovieCard = (props) => {
                 </StyledMovieCard>
             </>
         );
-    } 
+    }
 };
 
 export default MovieCard;

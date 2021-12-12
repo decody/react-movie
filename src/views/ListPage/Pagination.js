@@ -2,11 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { Pagination } from 'antd';
 
-const Paginate = () => {
+const Paginate = ({ movies }) => {
+    const pageSize = 12;
+    const current = 1;
+
     return (
         <>  
             <StyledPaginate>
-                <Pagination defaultCurrent={1} total={20} />
+                <Pagination 
+                    defaultCurrent={1} 
+                    current={current}
+                    pageSize={pageSize}
+                    total={movies.length} 
+                />
             </StyledPaginate>
         </>
     );

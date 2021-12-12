@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from 'react';
+// import React from 'react';
 import styled from 'styled-components';
+// import { getMovies } from '../../service/movie';
 import { Row, Col } from 'antd';
 import MovieCard from './MovieCard';
-import axios from 'axios';
 
-const MovieList = () => {
-    const endpoint = '/movies';
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        axios.get(endpoint)
-            .then(response => {
-                // console.log(response.data)
-                setMovies(response.data)
-            })
-            .catch(error => {console.log(error)});
-    }, []);
-
-    if (!movies) {
-        return <div>No data</div>
-    }
-   
+const MovieList = ({ movies }) => {
     return (
         <div className="movie-list">
             <StyledMovieList>
                 <Row justify="space-around" gutter={16}>
                     {movies.map(movie => (
                         <Col className="gutter-row" span={6} key={movie.id} style={{paddingBottom: 16}}>
-                            <MovieCard 
+                            <MovieCard
                                 movieCard
                                 movieId={movie.id}
                                 title={movie.title}
@@ -51,4 +35,4 @@ const StyledMovieList = styled.div`
     padding: 30px 0;
     color: #fff;
 `
-   
+    

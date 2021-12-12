@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { getMovieId, removeMovie } from '../service/movie';
 import { 
     Row, 
     Col, 
@@ -19,19 +19,18 @@ const MovieInfo = (props) => {
     console.log("[Movie Info]")
     
     const movieId = props.match.params.movieId;
-    const endpoint = '/movies/' + movieId;
-    
+        
     const [movie, setMovie] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
         
     useEffect(() => {
-        axios.get(endpoint)
+        getMovieId(movieId)
             .then(response => {
                 console.log(response.data)
                 setMovie(response.data)
             })
             .catch(error => {console.log(error)});
-    }, [endpoint]);
+    }, [movieId]);
 
     if (!movie) {
          return <div>No data</div>
@@ -56,7 +55,7 @@ const MovieInfo = (props) => {
         console.log("call remove apii");
 
         if (id) {
-            axios.delete(endpoint)
+            removeMovie(movieId)
                 .then(response => {
                     console.log(response);
                     props.history.push('/');
@@ -137,6 +136,7 @@ const MovieInfo = (props) => {
                 isModalVisible={isModalVisible}
                 setIsModalVisible={setIsModalVisible}
                 movie={movie}
+                movieId={movieId}
             />
         </>
     );

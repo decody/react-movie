@@ -15,20 +15,20 @@ https://www.freecodecamp.org/news/how-to-use-axios-with-react/
 
 ## 잔여 개발
 [x] 아이템 생성
-[ ] 아이템 수정
+[x] 아이템 수정
 [x] 아이템 삭제
-[ ] 필터, 정렬, 검색
-[ ] 옵션: 파일첨부 기능
-[ ] SearchBox 컴포넌트에서 호출 버튼 분리
+[x] 필터, 정렬, 검색
+[-] 옵션: 파일첨부 기능
+[x] SearchBox 컴포넌트에서 호출 버튼 분리
 
 [x] initialValueForUpdate 에 movie 체크 => movie? 표시
-[ ] isEdit 플래그
-    [ ] movie 존재유무 체크로 대체 가능
-    [ ] SearchBox에서 선언 불필요
+[x] isEdit 플래그
+    [x] movie 존재유무 체크로 대체 가능
+    [x] SearchBox에서 선언 불필요
 [x] validateMessages label
-[ ] movie 객체 그대로 넘기기
-    [ ] initialValues={movie}
-    [ ] POST / PATCH payload
+[x] movie 객체 그대로 넘기기
+    [x] initialValues={movie}
+    [x] POST / PATCH payload
 
 
 Image File Attachment
@@ -104,3 +104,75 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### 리액트 하위 컴포넌트에서 상위 컴포넌트로 데이터 올리는 방법
+
+```javascript
+const { useState } = React;
+
+function PageComponent() {
+  const [count, setCount] = useState(0);
+  const increment = () => {
+    setCount(count + 1)
+  }
+
+  return (
+    <div className="App">
+      <ChildComponent onClick={increment} count={count} />         
+      <h2>count {count}</h2>
+      (count should be updated from child)
+    </div>
+  );
+}
+
+const ChildComponent = ({ onClick, count }) => {
+  return (
+    <button onClick={onClick}>
+       Click me {count}
+    </button>
+  )
+};
+
+ReactDOM.render(<PageComponent />, document.getElementById("root"));
+
+
+export default function HigherComponent() {
+	const [text, setText] = useState('');
+
+  	function onChangeText(e) {
+    	setText(e.target.value)
+    }
+  
+ 	return (<LowerComponent propsFunction={onChangeText} />)
+}
+export default function LowerComponent({propsFunction}) {
+
+ 	return (<input onChange={propsFunction} />)
+```
+
+
+이것의 본질은 props 로 내려주는 것이 data가 아니라 function 이라는 것이다. 
+그게 본질이다. 너무 어렵게 설명을 이리저리 했던 것 같다. 내가 이해한 본질은 이러했다.
+
+ 
+
+리액트를 쓰다보면 parent의 props에 속성 값을 보내서, child에서 처리하는 것 뿐만아니라,
+
+child에서 처리한 것을 부모로 보내주어야 할 때가 있다.
+
+아래와 같이 부모로 부터 전달받은 setter (function)를 통해 전달할 데이터를 저장하면 된다.
+
+```javascript
+// parent
+const parent = () => {
+
+	const [htmlData, setHtmlData] = useState(0);
+	return <TextEditor setHtmlData={setHtmlData}/>
+
+}
+// child
+const TextEditor = (props) => {
+	props.setHtmlData(getContentHTML);
+}
+```
+props는 순수함수여야 하기 때문에 그러하다.

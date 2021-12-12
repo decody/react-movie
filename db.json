@@ -223,8 +223,8 @@
       "id": 18
     },
     {
-      "title": "지옥3",
-      "director": "asdsad",
+      "title": "지옥3asd",
+      "director": "옥택연",
       "year": 2021,
       "rating": "2.4",
       "genre": [
@@ -234,6 +234,32 @@
       ],
       "summary": "asdasdas",
       "id": 19
+    },
+    {
+      "title": "지욕지욕지욕",
+      "director": "언상혹asd",
+      "year": 2021,
+      "rating": "5.0",
+      "genre": [
+        "horror",
+        "action",
+        "comedy",
+        "drama"
+      ],
+      "summary": "지욕지욕",
+      "id": 20
+    },
+    {
+      "title": "승리승리",
+      "director": "연상호1",
+      "year": 2021,
+      "rating": "4.5",
+      "genre": [
+        "scifi",
+        "action"
+      ],
+      "summary": "우주 사이버",
+      "id": 21
     }
   ]
 }
